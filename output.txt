@@ -1,0 +1,893 @@
+Mon Apr 24 02:29:17 UTC 2023
+Linux LinuxMachine 5.15.49-linuxkit #1 SMP PREEMPT Tue Sep 13 07:51:32 UTC 2022 aarch64 aarch64 aarch64 GNU/Linux
+uid=1000(cssuwbstudent) gid=1000(cssuwbstudent) groups=1000(cssuwbstudent),10(wheel)
+=====================================================
+1. Compilation warnings are in the section below
+=====================================================
+=====================================================
+2. Program output are in the section below
+=====================================================
+a.out: main.cpp:15: void test1(): Assertion `strs.str() == "1,234,567,890,123,456,789"' failed.
+./create-output.sh: line 38: 24663 Aborted                 $EXEC_PROGRAM
+=====================================================
+3. clang-tidy warnings are in the section below
+=====================================================
+15269 warnings generated.
+28420 warnings generated.
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:17:8: error: consider replacing 'long long' with 'int64' [google-runtime-int,-warnings-as-errors]
+  for (long long i = num.str.size() - 1; i >= 0; i--) {
+       ^
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:17:22: error: narrowing conversion from 'unsigned long' to signed type 'long long' is implementation-defined [bugprone-narrowing-conversions,-warnings-as-errors]
+  for (long long i = num.str.size() - 1; i >= 0; i--) {
+                     ^
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:76:56: error: 2 adjacent parameters of 'mainAddition' of convertible types are easily swapped by mistake [bugprone-easily-swappable-parameters,-warnings-as-errors]
+void LargeNum::mainAddition(string &result, int &left, int &right, bool &carry,
+                                                       ^~~~~~~~~~~~~~~~~~~~~~~
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:76:61: note: the first parameter in the range is 'right'
+void LargeNum::mainAddition(string &result, int &left, int &right, bool &carry,
+                                                            ^~~~~
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:76:74: note: the last parameter in the range is 'carry'
+void LargeNum::mainAddition(string &result, int &left, int &right, bool &carry,
+                                                                         ^~~~~
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:76:68: note: 'int &' and 'bool &' may be implicitly converted: 'int &' (as 'int') -> 'bool &' (as 'bool'), 'bool &' (as 'bool') -> 'int &' (as 'int')
+void LargeNum::mainAddition(string &result, int &left, int &right, bool &carry,
+                                                                   ^
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:172:20: error: function 'operator-' has cognitive complexity of 30 (threshold 25) [readability-function-cognitive-complexity,-warnings-as-errors]
+LargeNum LargeNum::operator-(const LargeNum &rhs) const {
+                   ^
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:174:3: note: +1, including nesting penalty of 0, nesting level increased to 1
+  if (isPositive && !rhs.isPositive) { // positive - negative-> addition
+  ^
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:174:18: note: +1
+  if (isPositive && !rhs.isPositive) { // positive - negative-> addition
+                 ^
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:178:10: note: +1, nesting level increased to 1
+  } else if (!isPositive && rhs.isPositive) { // add 2 nega; if left -, right +,
+         ^
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:178:26: note: +1
+  } else if (!isPositive && rhs.isPositive) { // add 2 nega; if left -, right +,
+                         ^
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:182:5: note: +1, nesting level increased to 1
+  } else {
+    ^
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:187:5: note: +2, including nesting penalty of 1, nesting level increased to 2
+    if (leftNum < rightNum) {   // assume left < right, result is negative
+    ^
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:200:5: note: +2, including nesting penalty of 1, nesting level increased to 2
+    while (index1 < leftNum.str.size() && index2 < rightNum.str.size()) {
+    ^
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:200:40: note: +1
+    while (index1 < leftNum.str.size() && index2 < rightNum.str.size()) {
+                                       ^
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:207:7: note: +3, including nesting penalty of 2, nesting level increased to 3
+      if (borrow) {
+      ^
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:211:9: note: +4, including nesting penalty of 3, nesting level increased to 4
+        if (digit1 == -1) { // 103 - 7 = 96
+        ^
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:216:7: note: +3, including nesting penalty of 2, nesting level increased to 3
+      if (digit1 < digit2) {
+      ^
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:230:5: note: +2, including nesting penalty of 1, nesting level increased to 2
+    while (index1 < leftNum.str.size()) {
+    ^
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:232:7: note: +3, including nesting penalty of 2, nesting level increased to 3
+      if (borrow) {
+      ^
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:237:7: note: +3, including nesting penalty of 2, nesting level increased to 3
+      if (digit1 < 9) {
+      ^
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:247:5: note: +2, including nesting penalty of 1, nesting level increased to 2
+    if (!resultPositive) {
+    ^
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:334:45: error: repeated branch in conditional chain [bugprone-branch-clone,-warnings-as-errors]
+  } else if (isPositive && !rhs.isPositive) {
+                                            ^
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:336:4: note: end of the original
+  } else if (str == rhs.str) { // same value
+   ^
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:336:30: note: clone 1 starts here
+  } else if (str == rhs.str) { // same value
+                             ^
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:340:13: error: redundant boolean literal in conditional assignment [readability-simplify-boolean-expr,-warnings-as-errors]
+      ret = true;
+            ^
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:348:13: error: redundant boolean literal in conditional assignment [readability-simplify-boolean-expr,-warnings-as-errors]
+      ret = true;
+~~~~~~~~~~~~^~~~~
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:354:13: error: redundant boolean literal in conditional assignment [readability-simplify-boolean-expr,-warnings-as-errors]
+      ret = false;
+~~~~~~~~~~~~^~~~~~
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:368:45: error: repeated branch in conditional chain [bugprone-branch-clone,-warnings-as-errors]
+  } else if (isPositive && !rhs.isPositive) {
+                                            ^
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:370:4: note: end of the original
+  } else if (str == rhs.str) { // same value
+   ^
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:370:30: note: clone 1 starts here
+  } else if (str == rhs.str) { // same value
+                             ^
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:374:13: error: redundant boolean literal in conditional assignment [readability-simplify-boolean-expr,-warnings-as-errors]
+      ret = false;
+            ^
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:382:13: error: redundant boolean literal in conditional assignment [readability-simplify-boolean-expr,-warnings-as-errors]
+      ret = false;
+~~~~~~~~~~~~^~~~~~
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:388:13: error: redundant boolean literal in conditional assignment [readability-simplify-boolean-expr,-warnings-as-errors]
+      ret = true;
+~~~~~~~~~~~~^~~~~
+Suppressed 28408 warnings (28408 in non-user code).
+Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+12 warnings treated as errors
+Resource filename: /usr/local/lib64/python3.6/site-packages/clang_tidy/data/bin/clang-tidy 
+=====================================================
+4. clang-format warnings are in the section below
+=====================================================
+Running clang-format on ./largenum.cpp
+Running clang-format on ./main.cpp
+=====================================================
+5. Memory leak issues are in the section below
+=====================================================
+a.out: main.cpp:15: void test1(): Assertion `strs.str() == "1,234,567,890,123,456,789"' failed.
+./create-output.sh: line 74: 24720 Aborted                 $EXEC_PROGRAM > /dev/null
+=====================================================
+6. valgrind memory test is in the section below. Look for "definitely lost" 
+=====================================================
+a.out: main.cpp:15: void test1(): Assertion `strs.str() == "1,234,567,890,123,456,789"' failed.
+./create-output.sh: line 91: 24739 Aborted                 valgrind --log-file="valgrind-output.txt" $EXEC_PROGRAM > /dev/null
+==24739== Memcheck, a memory error detector
+==24739== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==24739== Using Valgrind-3.19.0 and LibVEX; rerun with -h for copyright info
+==24739== Command: ./a.out
+==24739== Parent PID: 24640
+==24739== 
+==24739== 
+==24739== Process terminating with default action of signal 6 (SIGABRT)
+==24739==    at 0x4B6024C: raise (raise.c:51)
+==24739==    by 0x4B4AA2B: abort (abort.c:79)
+==24739==    by 0x4B59B8B: __assert_fail_base (assert.c:92)
+==24739==    by 0x4B59BF7: __assert_fail (assert.c:101)
+==24739==    by 0x40428F: test1() (main.cpp:15)
+==24739==    by 0x406E4B: main (main.cpp:134)
+==24739== 
+==24739== HEAP SUMMARY:
+==24739==     in use at exit: 73,279 bytes in 4 blocks
+==24739==   total heap usage: 12 allocs, 8 frees, 73,651 bytes allocated
+==24739== 
+==24739== LEAK SUMMARY:
+==24739==    definitely lost: 0 bytes in 0 blocks
+==24739==    indirectly lost: 0 bytes in 0 blocks
+==24739==      possibly lost: 0 bytes in 0 blocks
+==24739==    still reachable: 73,279 bytes in 4 blocks
+==24739==         suppressed: 0 bytes in 0 blocks
+==24739== Rerun with --leak-check=full to see details of leaked memory
+==24739== 
+==24739== For lists of detected and suppressed errors, rerun with: -s
+==24739== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+=====================================================
+7. Code coverage information is in the section below
+=====================================================
+a.out-code-coverage: main.cpp:15: void test1(): Assertion `strs.str() == "1,234,567,890,123,456,789"' failed.
+./check-code-coverage.sh: line 33: 24767 Aborted                 $EXEC_PROGRAM > /dev/null
+File '/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp':
+Name                                                                                                                                                 Regions    Miss   Cover     Lines    Miss   Cover  Branches    Miss   Cover
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+operator<<(std::ostream&, LargeNum const&)                                                                                                                10      10   0.00%        16      16   0.00%         8       8   0.00%
+LargeNum::LargeNum(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)                                                 8       8   0.00%        14      14   0.00%         6       6   0.00%
+LargeNum::LargeNum(int)                                                                                                                                    4       4   0.00%        10      10   0.00%         2       2   0.00%
+LargeNum::reverse(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)                                                  4       4   0.00%         7       7   0.00%         2       2   0.00%
+LargeNum::mainAddition(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, int&, int&, bool&, LargeNum const&) const        15      15   0.00%        31      31   0.00%        14      14   0.00%
+LargeNum::isZero() const                                                                                                                                   1       1   0.00%         1       1   0.00%         0       0   0.00%
+LargeNum::negate()                                                                                                                                         1       1   0.00%         4       4   0.00%         0       0   0.00%
+LargeNum::operator+(LargeNum const&) const                                                                                                                24      24   0.00%        37      37   0.00%        20      20   0.00%
+LargeNum::operator-(LargeNum const&) const                                                                                                                32      32   0.00%        65      65   0.00%        28      28   0.00%
+LargeNum::operator*(LargeNum const&) const                                                                                                                11      11   0.00%        26      26   0.00%         8       8   0.00%
+LargeNum::operator/(LargeNum const&) const                                                                                                                11      11   0.00%        26      26   0.00%         8       8   0.00%
+LargeNum::operator==(LargeNum const&) const                                                                                                                3       3   0.00%         3       3   0.00%         4       4   0.00%
+LargeNum::operator!=(LargeNum const&) const                                                                                                                1       1   0.00%         3       3   0.00%         0       0   0.00%
+LargeNum::operator<(LargeNum const&) const                                                                                                                29      29   0.00%        30      30   0.00%        20      20   0.00%
+LargeNum::operator>(LargeNum const&) const                                                                                                                29      29   0.00%        30      30   0.00%        20      20   0.00%
+LargeNum::operator<=(LargeNum const&) const                                                                                                                3       3   0.00%         3       3   0.00%         4       4   0.00%
+LargeNum::operator>=(LargeNum const&) const                                                                                                                3       3   0.00%         3       3   0.00%         4       4   0.00%
+LargeNum::operator++()                                                                                                                                     1       1   0.00%         5       5   0.00%         0       0   0.00%
+LargeNum::operator++(int)                                                                                                                                  1       1   0.00%         5       5   0.00%         0       0   0.00%
+LargeNum::operator--()                                                                                                                                     1       1   0.00%         5       5   0.00%         0       0   0.00%
+LargeNum::operator--(int)                                                                                                                                  1       1   0.00%         5       5   0.00%         0       0   0.00%
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOTAL                                                                                                                                                    193     193   0.00%       329     329   0.00%       148     148   0.00%
+
+File '/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/main.cpp':
+Name                                                                                                                                                 Regions    Miss   Cover     Lines    Miss   Cover  Branches    Miss   Cover
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+test1()                                                                                                                                                    1       1   0.00%        26      26   0.00%         0       0   0.00%
+test2()                                                                                                                                                    1       1   0.00%         9       9   0.00%         0       0   0.00%
+test3()                                                                                                                                                    1       1   0.00%        26      26   0.00%         0       0   0.00%
+test4()                                                                                                                                                    1       1   0.00%        10      10   0.00%         0       0   0.00%
+test5()                                                                                                                                                    1       1   0.00%        10      10   0.00%         0       0   0.00%
+test6()                                                                                                                                                    1       1   0.00%        19      19   0.00%         0       0   0.00%
+main                                                                                                                                                       1       1   0.00%         9       9   0.00%         0       0   0.00%
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOTAL                                                                                                                                                      7       7   0.00%       109     109   0.00%         0       0   0.00%
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.cpp:
+    1|       |#include "largenum.h"
+    2|       |#include <algorithm>
+    3|       |#include <cassert>
+    4|       |#include <iostream>
+    5|       |
+    6|       |using namespace std;
+    7|       |
+    8|      0|ostream &operator<<(ostream &out, const LargeNum &num) {
+    9|      0|  if (!num.isPositive) {
+   10|      0|    out << "-" << endl;
+   11|      0|  }
+   12|      0|  string strWithComma;
+   13|       |  // insert commas after each 3 characters
+   14|       |  // process forward, go through num.str, append to new str
+   15|       |  // counter to count number of characters
+   16|      0|  int counter = 0;
+   17|      0|  for (long long i = num.str.size() - 1; i >= 0; i--) {
+   18|      0|    counter++;
+   19|      0|    strWithComma += num.str[i];
+   20|       |    // if need to append comma
+   21|      0|    if (i < num.str.size() - 1 && (num.str.size() - counter) % 3 == 0) {
+   22|      0|      strWithComma += ','; // append to the front
+   23|      0|    }
+   24|      0|  }
+   25|      0|  out << strWithComma;
+   26|      0|  return out;
+   27|      0|}
+   28|       |
+   29|       |// default constructor from string
+   30|      0|LargeNum::LargeNum(const string &str) {
+   31|       |  // when call constructor LargeNum, if no value passed by str, then
+   32|       |  // str is optional, default value is 0
+   33|       |  // if the 1st char of str = minus, set is posi to false
+   34|      0|  if (!str.empty() && str[0] == '-') {
+   35|      0|    isPositive = false;
+   36|      0|    this->str = str.substr(1, str.size() - 1);
+   37|      0|  } else {
+   38|      0|    isPositive = true;
+   39|      0|    this->str = str; // copy the whole string over
+   40|      0|  }
+   41|      0|  if (this->str.empty()) {
+   42|      0|    this->str = "0";
+   43|      0|    isPositive = true;
+   44|      0|  }
+   45|       |  // reversed string
+   46|      0|  this->str = reverse(this->str);
+   47|      0|}
+   48|       |
+   49|       |// constructor from int
+   50|      0|LargeNum::LargeNum(int anInteger) {
+   51|       |  // check if negative anInteger < 0
+   52|      0|  if (anInteger < 0) {
+   53|      0|    isPositive = false;
+   54|      0|    anInteger *= -1; // set to positive
+   55|      0|  } else {
+   56|      0|    isPositive = true;
+   57|      0|  }
+   58|      0|  str = to_string(anInteger); // return a string eg: "3"
+   59|      0|  this->str = reverse(this->str);
+   60|      0|}
+   61|       |
+   62|       |// use the default copy constructor
+   63|       |// LargeNum::LargeNum(const LargeNum &other) {
+   64|       |//   isPositive = other.isPositive;
+   65|       |//   str = other.str;
+   66|       |// }
+   67|       |
+   68|       |// helper function to reverse string
+   69|      0|string LargeNum::reverse(const string &str) {
+   70|      0|  string newStr;
+   71|      0|  for (int i = 0; i < str.size(); i++) {
+   72|      0|    newStr = str[i] + newStr;
+   73|      0|  }
+   74|      0|  return newStr;
+   75|      0|}
+   76|       |void LargeNum::mainAddition(string &result, int &left, int &right, bool &carry,
+   77|      0|                            const LargeNum &rhs) const {
+   78|      0|  while (left < str.size() && right < rhs.str.size()) {
+   79|      0|    int digit1 = str[left] - '0';
+   80|      0|    int digit2 = rhs.str[right] - '0';
+   81|      0|    int digit = digit1 + digit2;
+   82|      0|    if (carry) {
+   83|      0|      digit += 1;
+   84|      0|      carry = false;
+   85|      0|    }
+   86|      0|    if (digit > 9) {
+   87|      0|      carry = true;
+   88|      0|      digit -= 10;
+   89|      0|    }
+   90|      0|    result += to_string(digit); // int -> str
+   91|      0|    left++;
+   92|      0|    right++;
+   93|      0|  }
+   94|       |  // process remainder and carry
+   95|      0|  while (left < str.size()) {
+   96|      0|    int digit1 = str[left] - '0';
+   97|      0|    if (carry) {
+   98|      0|      digit1 += 1;
+   99|      0|      carry = false;
+  100|      0|    }
+  101|       |    // to reset carry
+  102|      0|    if (digit1 > 9) {
+  103|      0|      carry = true;
+  104|      0|      digit1 -= 10;
+  105|      0|    }
+  106|      0|    result += to_string(digit1); // int -> str
+  107|      0|    left++;
+  108|      0|  }
+  109|      0|}
+  110|       |// use the default copy assignment operator
+  111|       |// LargeNum &LargeNum::operator=(const LargeNum &other) {
+  112|       |//   str = other.str;
+  113|       |//   isPositive = other.isPositive;
+  114|       |//   return *this;
+  115|       |// }
+  116|       |
+  117|       |// returns true if the number is zero
+  118|      0|bool LargeNum::isZero() const { return (str == "0"); }
+  119|       |
+  120|       |// negate the number, positive becomes negative, negative becomes positive
+  121|       |// Zero is always positive
+  122|      0|LargeNum &LargeNum::negate() {
+  123|      0|  isPositive = !isPositive; // flip sign
+  124|      0|  return *this;
+  125|      0|}
+  126|       |
+  127|       |// add two numbers
+  128|       |// (are they int?)67890987656
+  129|       |// are they always positive?
+  130|      0|LargeNum LargeNum::operator+(const LargeNum &rhs) const {
+  131|      0|  LargeNum num;
+  132|      0|  if (isPositive && !rhs.isPositive) {
+  133|      0|    num = *this - rhs;
+  134|      0|  } else if (!isPositive && rhs.isPositive) {
+  135|      0|    num = rhs - *this;
+  136|      0|  } else {
+  137|      0|    string result;
+  138|       |    // 2 index location
+  139|      0|    int index1 = 0;
+  140|      0|    int index2 = 0;
+  141|      0|    bool carry = false;
+  142|      0|    mainAddition(result, index1, index2, carry, rhs);
+  143|       |
+  144|      0|    while (index2 < rhs.str.size()) {
+  145|      0|      int digit2 = rhs.str[index2] - '0';
+  146|      0|      if (carry) {
+  147|      0|        digit2 += 1;
+  148|      0|        carry = false;
+  149|      0|      }
+  150|       |      // to reset carry
+  151|      0|      if (digit2 > 9) {
+  152|      0|        carry = true;
+  153|      0|        digit2 -= 10;
+  154|      0|      }
+  155|      0|      result += to_string(digit2); // int -> str
+  156|      0|      index2++;
+  157|      0|    }
+  158|      0|    if (carry) {
+  159|      0|      result += to_string(1);
+  160|      0|    }
+  161|      0|    LargeNum largeNum; // create a new largeNum
+  162|      0|    largeNum.str = result;
+  163|      0|    if (!isPositive && !rhs.isPositive) {
+  164|      0|      largeNum.isPositive = false;
+  165|      0|    }
+  166|      0|    return largeNum;
+  167|      0|  }
+  168|      0|  return num;
+  169|      0|}
+  170|       |
+  171|       |// subtract two numbers
+  172|      0|LargeNum LargeNum::operator-(const LargeNum &rhs) const {
+  173|      0|  LargeNum num;
+  174|      0|  if (isPositive && !rhs.isPositive) { // positive - negative-> addition
+  175|      0|    LargeNum newRhs(rhs);
+  176|      0|    newRhs.isPositive = true;
+  177|      0|    num = *this + newRhs;
+  178|      0|  } else if (!isPositive && rhs.isPositive) { // add 2 nega; if left -, right +,
+  179|      0|    LargeNum newRhs(rhs);
+  180|      0|    newRhs.isPositive = false; // flip sign
+  181|      0|    num = *this + newRhs;      // add 2 neg gives negative sign
+  182|      0|  } else {
+  183|      0|    LargeNum leftNum(*this);
+  184|      0|    LargeNum rightNum(rhs);
+  185|       |    // if left -, right -, flip-> L - R
+  186|      0|    bool resultPositive = true; // assuem left > right (13 - 7) = 6 is Pos
+  187|      0|    if (leftNum < rightNum) {   // assume left < right, result is negative
+  188|      0|      resultPositive = false;
+  189|       |      // swapping; now left > right
+  190|      0|      leftNum = rightNum;
+  191|      0|      rightNum = *this;
+  192|      0|    }
+  193|       |
+  194|       |    // leftNum = pos; rightNum = pos; otherwise addition method will be called
+  195|      0|    string result;
+  196|       |    // 2 index location
+  197|      0|    int index1 = 0;
+  198|      0|    int index2 = 0;
+  199|      0|    bool borrow = false;
+  200|      0|    while (index1 < leftNum.str.size() && index2 < rightNum.str.size()) {
+  201|      0|      int digit1 = leftNum.str[index1] - '0'; // ASCII -> num; eg:"1" - "0" = 1
+  202|      0|      int digit2 = rightNum.str[index2] - '0';
+  203|       |      // check if we borrow from digit on the left; eg: 13 - 7
+  204|       |      // 13 has 1 more digit than 7
+  205|       |      // digit1: 13; digit2: 7; able to borrow from 13, but not the other way
+  206|       |      // around
+  207|      0|      if (borrow) {
+  208|      0|        digit1--;
+  209|      0|        borrow = false; // turns off borrow, subtract from digit1
+  210|       |
+  211|      0|        if (digit1 == -1) { // 103 - 7 = 96
+  212|      0|          borrow = true;
+  213|      0|          digit1 = 9;
+  214|      0|        }
+  215|      0|      }
+  216|      0|      if (digit1 < digit2) {
+  217|      0|        digit1 += 10;
+  218|      0|        borrow = true;
+  219|      0|      }
+  220|      0|      int digit = digit1 - digit2;
+  221|       |
+  222|      0|      result += to_string(digit); // int -> str
+  223|      0|      index1++; // goes from right character to left character in the string
+  224|      0|      index2++; // goes from right character to left character in the string
+  225|      0|    }
+  226|       |
+  227|       |    // process remainder and carry
+  228|       |    // eg 103 - 7 -> 2 digits left: process the next string character in the
+  229|       |    // longer string
+  230|      0|    while (index1 < leftNum.str.size()) {
+  231|      0|      int digit1 = leftNum.str[index1] - '0';
+  232|      0|      if (borrow) {
+  233|      0|        digit1--;
+  234|      0|        borrow = false;
+  235|      0|      }
+  236|       |      // to reset carry
+  237|      0|      if (digit1 < 9) {
+  238|      0|        borrow = true;
+  239|      0|        digit1 += 10;
+  240|      0|      }
+  241|      0|      result += to_string(digit1); // int -> str
+  242|      0|      index1++;
+  243|      0|    }
+  244|       |
+  245|      0|    LargeNum largeNum;
+  246|      0|    largeNum.str = result;
+  247|      0|    if (!resultPositive) {
+  248|      0|      largeNum.isPositive = false;
+  249|      0|    }
+  250|      0|    return largeNum;
+  251|      0|  }
+  252|      0|  return num;
+  253|      0|}
+  254|       |
+  255|       |// multiply two numbers
+  256|      0|LargeNum LargeNum::operator*(const LargeNum &rhs) const {
+  257|      0|  LargeNum largeNum(rhs);
+  258|      0|  LargeNum thisNum(*this);
+  259|      0|  LargeNum result(*this);
+  260|      0|  result.isPositive = true;
+  261|      0|  thisNum.isPositive = true;
+  262|      0|  largeNum.isPositive = true;
+  263|      0|  thisNum--;
+  264|       |  // case: pass in zero
+  265|      0|  if (rhs.str == "0") {
+  266|      0|    result.str = "0";
+  267|      0|    result.isPositive = true;
+  268|      0|    return result;
+  269|      0|  }
+  270|       |  // case: pass in negative
+  271|      0|  while (largeNum.str != "0") {
+  272|      0|    if (largeNum.isPositive) { // substract from it
+  273|      0|      largeNum--;
+  274|      0|    } else {
+  275|      0|      largeNum++;
+  276|      0|    }
+  277|      0|    result = result + thisNum;
+  278|      0|  }
+  279|      0|  if (isPositive != rhs.isPositive) {
+  280|      0|    result.isPositive = false;
+  281|      0|  }
+  282|      0|  return result;
+  283|      0|}
+  284|       |
+  285|       |// divide two numbers. rhs is the divisor
+  286|       |// similar to integer division, ignore remainder
+  287|       |// need to work more
+  288|      0|LargeNum LargeNum::operator/(const LargeNum &rhs) const { // 12/4 =3
+  289|      0|  LargeNum largeNum(rhs);
+  290|      0|  LargeNum thisNum(*this);
+  291|      0|  LargeNum result("0");
+  292|      0|  result.isPositive = true;
+  293|      0|  thisNum.isPositive = true;
+  294|      0|  largeNum.isPositive = true;
+  295|      0|  thisNum--;
+  296|       |  // case: pass in zero
+  297|      0|  if (rhs.str == "0") {
+  298|      0|    result.str = "0";
+  299|      0|    result.isPositive = true;
+  300|      0|    return result;
+  301|      0|  }
+  302|       |  // case: pass in negative
+  303|      0|  while (thisNum > largeNum) {
+  304|      0|    if (largeNum.isPositive) { // substract from it
+  305|      0|      largeNum--;
+  306|      0|    } else {
+  307|      0|      largeNum++;
+  308|      0|    }
+  309|      0|    result++; //
+  310|      0|  }
+  311|      0|  if (isPositive != rhs.isPositive) {
+  312|      0|    result.isPositive = false;
+  313|      0|  }
+  314|       |
+  315|      0|  return result;
+  316|      0|}
+  317|       |
+  318|       |// return true if the numbers are equal
+  319|      0|bool LargeNum::operator==(const LargeNum &rhs) const {
+  320|      0|  return isPositive == rhs.isPositive && str == rhs.str;
+  321|      0|}
+  322|       |
+  323|       |// return true if the numbers are not equal
+  324|      0|bool LargeNum::operator!=(const LargeNum &rhs) const {
+  325|      0|  return !(*this == rhs); // not equal , then return true
+  326|      0|}
+  327|       |
+  328|       |// return true if the left-hand-side number is less than the
+  329|       |// right-hand-side number
+  330|      0|bool LargeNum::operator<(const LargeNum &rhs) const {
+  331|      0|  bool ret = false;
+  332|      0|  if (!isPositive && rhs.isPositive) {
+  333|      0|    ret = true;
+  334|      0|  } else if (isPositive && !rhs.isPositive) {
+  335|      0|    ret = false;
+  336|      0|  } else if (str == rhs.str) { // same value
+  337|      0|    ret = false;
+  338|      0|  } else if (str.size() > rhs.str.size()) {
+  339|      0|    if (!isPositive) { // compare 2 negatives
+  340|      0|      ret = true;
+  341|      0|    } else {
+  342|      0|      ret = false; // diff str length
+  343|      0|    }
+  344|      0|  }
+  345|       |  // same str length, diff value
+  346|      0|  else if (str < rhs.str) {
+  347|      0|    if (isPositive) {
+  348|      0|      ret = true;
+  349|      0|    } else {
+  350|      0|      ret = false;
+  351|      0|    }
+  352|      0|  } else {
+  353|      0|    if (isPositive) {
+  354|      0|      ret = false;
+  355|      0|    } else {
+  356|      0|      ret = true;
+  357|      0|    }
+  358|      0|  }
+  359|      0|  return ret;
+  360|      0|}
+  361|       |
+  362|       |// return true if the left-hand-side number is greater than the
+  363|       |// right-hand-side number
+  364|      0|bool LargeNum::operator>(const LargeNum &rhs) const {
+  365|      0|  bool ret = false;
+  366|      0|  if (!isPositive && rhs.isPositive) {
+  367|      0|    ret = false;
+  368|      0|  } else if (isPositive && !rhs.isPositive) {
+  369|      0|    ret = true;
+  370|      0|  } else if (str == rhs.str) { // same value
+  371|      0|    ret = true;
+  372|      0|  } else if (str.size() > rhs.str.size()) {
+  373|      0|    if (!isPositive) { // compare 2 negatives
+  374|      0|      ret = false;
+  375|      0|    } else {
+  376|      0|      ret = true; // diff str length
+  377|      0|    }
+  378|      0|  }
+  379|       |  // same str length, diff value
+  380|      0|  else if (str < rhs.str) {
+  381|      0|    if (isPositive) {
+  382|      0|      ret = false;
+  383|      0|    } else {
+  384|      0|      ret = true;
+  385|      0|    }
+  386|      0|  } else {
+  387|      0|    if (isPositive) {
+  388|      0|      ret = true;
+  389|      0|    } else {
+  390|      0|      ret = false;
+  391|      0|    }
+  392|      0|  }
+  393|      0|  return ret;
+  394|      0|}
+  395|       |
+  396|       |// return true if the left-hand-side number is less than or equal to the
+  397|       |// right-hand-side number
+  398|      0|bool LargeNum::operator<=(const LargeNum &rhs) const {
+  399|      0|  return (*this == rhs || *this < rhs);
+  400|      0|}
+  401|       |
+  402|       |// return true if the left-hand-side number is greater than or equal to the
+  403|       |// right-hand-side number
+  404|      0|bool LargeNum::operator>=(const LargeNum &rhs) const {
+  405|      0|  return (*this == rhs || *this > rhs);
+  406|      0|}
+  407|       |
+  408|       |// prefix increment
+  409|      0|LargeNum &LargeNum::operator++() {
+  410|      0|  LargeNum one(1);
+  411|      0|  *this = *this + one;
+  412|      0|  return *this;
+  413|      0|}
+  414|       |
+  415|       |// postfix increment
+  416|       |// make copy, increment
+  417|      0|LargeNum LargeNum::operator++(int) {
+  418|      0|  LargeNum mycopy(*this);
+  419|      0|  ++(*this);
+  420|      0|  return mycopy;
+  421|      0|}
+  422|       |
+  423|       |// prefix decrement
+  424|      0|LargeNum &LargeNum::operator--() {
+  425|      0|  LargeNum one(1);
+  426|      0|  *this = *this - one;
+  427|      0|  return *this;
+  428|      0|}
+  429|       |
+  430|       |// postfix decrement
+  431|      0|LargeNum LargeNum::operator--(int) {
+  432|      0|  LargeNum mycopy(*this);
+  433|      0|  --(*this);
+  434|      0|  return mycopy;
+  435|      0|}
+
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/largenum.h:
+    1|       |#include <iostream>
+    2|       |#include <string>
+    3|       |#include <vector>
+    4|       |
+    5|       |using namespace std;
+    6|       |
+    7|       |class LargeNum {
+    8|       |  // output number with a comma after ever 3 digits,
+    9|       |  // e.g. 1234567890 -> 1,234,567,890
+   10|       |  friend ostream &operator<<(ostream &out, const LargeNum &num);
+   11|       |
+   12|       |private:
+   13|       |  // Define private data members and methods here
+   14|       |  bool isPositive;
+   15|       |  string str;
+   16|       |  // Other helper methods
+   17|       |
+   18|       |public:
+   19|       |  // default constructor from string
+   20|       |  explicit LargeNum(const string &str = "0");
+   21|       |
+   22|       |  // constructor from int
+   23|       |  explicit LargeNum(int anInteger);
+   24|       |
+   25|       |  // use the default copy constructor
+   26|      0|  LargeNum(const LargeNum &other) = default;
+   27|       |
+   28|       |  // use the default copy assignment operator
+   29|      0|  LargeNum &operator=(const LargeNum &other) = default;
+   30|       |
+   31|       |  // use the default destructor
+   32|      0|  ~LargeNum() = default;
+   33|       |
+   34|       |  // helper function to perform main addition
+   35|       |  void mainAddition(string &result, int &left, int &right, bool &carry,
+   36|       |                    const LargeNum &rhs) const;
+   37|       |
+   38|       |  // helper function to reverse string
+   39|       |  static string reverse(const string &str);
+   40|       |
+   41|       |  // returns true if the number is zero
+   42|       |  bool isZero() const;
+   43|       |
+   44|       |  // negate the number, positive becomes negative, negative becomes positive
+   45|       |  // Zero is always positive
+   46|       |  LargeNum &negate();
+   47|       |
+   48|       |  // add two numbers
+   49|       |  LargeNum operator+(const LargeNum &rhs) const;
+   50|       |
+   51|       |  // subtract two numbers
+   52|       |  LargeNum operator-(const LargeNum &rhs) const;
+   53|       |
+   54|       |  // multiply two numbers
+   55|       |  LargeNum operator*(const LargeNum &rhs) const;
+   56|       |
+   57|       |  // divide two numbers. rhs is the divisor
+   58|       |  // similar to integer division, ignore remainder
+   59|       |  LargeNum operator/(const LargeNum &rhs) const;
+   60|       |
+   61|       |  // return true if the numbers are equal
+   62|       |  bool operator==(const LargeNum &rhs) const;
+   63|       |
+   64|       |  // return true if the numbers are not equal
+   65|       |  bool operator!=(const LargeNum &rhs) const;
+   66|       |
+   67|       |  // return true if the left-hand-side number is less than the
+   68|       |  // right-hand-side number
+   69|       |  bool operator<(const LargeNum &rhs) const;
+   70|       |
+   71|       |  // return true if the left-hand-side number is greater than the
+   72|       |  // right-hand-side number
+   73|       |  bool operator>(const LargeNum &rhs) const;
+   74|       |
+   75|       |  // return true if the left-hand-side number is less than or equal to the
+   76|       |  // right-hand-side number
+   77|       |  bool operator<=(const LargeNum &rhs) const;
+   78|       |
+   79|       |  // return true if the left-hand-side number is greater than or equal to the
+   80|       |  // right-hand-side number
+   81|       |  bool operator>=(const LargeNum &rhs) const;
+   82|       |
+   83|       |  // prefix increment
+   84|       |  LargeNum &operator++();
+   85|       |
+   86|       |  // postfix increment
+   87|       |  LargeNum operator++(int);
+   88|       |
+   89|       |  // prefix decrement
+   90|       |  LargeNum &operator--();
+   91|       |
+   92|       |  // postfix decrement
+   93|       |  LargeNum operator--(int);
+   94|       |};
+
+/home/cssuwbstudent/caro1650/2023Spr-p2-HoneyButterPotatoChips-master/main.cpp:
+    1|       |
+    2|       |#include "largenum.h"
+    3|       |#include <cassert>
+    4|       |#include <iostream>
+    5|       |#include <sstream>
+    6|       |
+    7|       |using namespace std;
+    8|       |
+    9|       |// check printing and addition
+   10|      0|void test1() {
+   11|      0|  stringstream strs;
+   12|       |
+   13|      0|  LargeNum num0("1234567890123456789");
+   14|      0|  strs << num0;
+   15|      0|  assert(strs.str() == "1,234,567,890,123,456,789");
+   16|       |
+   17|      0|  strs.str("");
+   18|      0|  LargeNum num1(12345);
+   19|      0|  strs << num1;
+   20|      0|  assert(strs.str() == "12,345");
+   21|       |
+   22|      0|  strs.str("");
+   23|      0|  LargeNum num2(11115);
+   24|      0|  LargeNum num3 = num1 + num2;
+   25|      0|  strs << num3;
+   26|      0|  assert(strs.str() == "23,460");
+   27|       |
+   28|      0|  strs.str("");
+   29|      0|  LargeNum num4(99);
+   30|      0|  LargeNum num5 = num1 + num4;
+   31|      0|  strs << num5;
+   32|      0|  assert(strs.str() == "12,444");
+   33|       |
+   34|      0|  strs.str("");
+   35|      0|  LargeNum num6(99000);
+   36|      0|  LargeNum num7 = num1 + num6;
+   37|      0|  strs << num7;
+   38|      0|  assert(strs.str() == "111,345");
+   39|      0|  cout << "test1 complete" << endl;
+   40|      0|}
+   41|       |
+   42|       |// check comparator operators
+   43|      0|void test2() {
+   44|      0|  assert(LargeNum(99) == LargeNum(99) && LargeNum(99) != LargeNum(100));
+   45|      0|  assert(LargeNum(99) > LargeNum(7) && LargeNum(7) < LargeNum(99));
+   46|      0|  assert(LargeNum(105) >= LargeNum(100) && LargeNum(100) <= LargeNum(105));
+   47|      0|  assert(LargeNum(99) > LargeNum(-7) && LargeNum(-7) < LargeNum(99));
+   48|      0|  assert(LargeNum(-5) > LargeNum(-10) && LargeNum(-10) < LargeNum(-5));
+   49|      0|  assert(!(LargeNum(5) > LargeNum(5)));
+   50|      0|  cout << "test2 complete" << endl;
+   51|      0|}
+   52|       |
+   53|       |// check negative numbers
+   54|      0|void test3() {
+   55|      0|  stringstream strs;
+   56|      0|  LargeNum num0("-1234567890123456789");
+   57|      0|  strs << num0;
+   58|      0|  assert(strs.str() == "-1,234,567,890,123,456,789");
+   59|       |
+   60|      0|  strs.str("");
+   61|      0|  LargeNum num1(-12345);
+   62|      0|  strs << num1;
+   63|      0|  assert(strs.str() == "-12,345");
+   64|       |
+   65|      0|  strs.str("");
+   66|      0|  LargeNum numZero(-0000);
+   67|      0|  strs << numZero;
+   68|      0|  assert(strs.str() == "0");
+   69|       |
+   70|      0|  assert(LargeNum(0).isZero() && LargeNum(-0).isZero());
+   71|      0|  assert(LargeNum(0) == LargeNum(-0));
+   72|      0|  assert(LargeNum(0).negate() == LargeNum(-0));
+   73|      0|  assert(LargeNum(100) - LargeNum(100) == LargeNum(0));
+   74|      0|  assert(LargeNum(100) + LargeNum(-100) == LargeNum(0));
+   75|      0|  assert(LargeNum(100) - LargeNum(-100) == LargeNum(200));
+   76|      0|  assert(LargeNum(-100) - LargeNum(-100) == LargeNum(0));
+   77|      0|  assert(LargeNum(-100) + LargeNum(100) == LargeNum(0));
+   78|      0|  assert(LargeNum(100) - LargeNum(7) == LargeNum(93));
+   79|      0|  assert(LargeNum(7) - LargeNum(100) == LargeNum(-93));
+   80|      0|  assert(LargeNum(-7) + LargeNum(-100) == LargeNum(-107));
+   81|       |
+   82|      0|  cout << "test3 complete" << endl;
+   83|      0|}
+   84|       |
+   85|       |// check multiplication
+   86|      0|void test4() {
+   87|      0|  assert(LargeNum(25) * LargeNum(0) == LargeNum(0));
+   88|      0|  assert(LargeNum(25) * LargeNum(5) == LargeNum(125));
+   89|      0|  assert(LargeNum(-25) * LargeNum(-5) == LargeNum(125));
+   90|      0|  assert(LargeNum(-25) * LargeNum(5) == LargeNum(-125));
+   91|      0|  assert(LargeNum(25) * LargeNum(-5) == LargeNum(-125));
+   92|      0|  assert(LargeNum("123456789123456789") * LargeNum("123456789123456789") ==
+   93|      0|         LargeNum("15241578780673678515622620750190521"));
+   94|      0|  cout << "test4 complete" << endl;
+   95|      0|}
+   96|       |
+   97|       |// check division
+   98|       |// use small numbers to avoid excessive computation
+   99|      0|void test5() {
+  100|      0|  assert(LargeNum(0) / LargeNum(5) == LargeNum(0));
+  101|      0|  assert(LargeNum(25) / LargeNum(5) == LargeNum(5));
+  102|      0|  assert(LargeNum(-25) / LargeNum(-5) == LargeNum(5));
+  103|      0|  assert(LargeNum(-25) / LargeNum(5) == LargeNum(-5));
+  104|      0|  assert(LargeNum(25) / LargeNum(-5) == LargeNum(-5));
+  105|      0|  assert(LargeNum("25") / LargeNum("7") == LargeNum("3"));
+  106|      0|  assert(LargeNum("7") / LargeNum("25") == LargeNum("0"));
+  107|      0|  cout << "test5 complete" << endl;
+  108|      0|}
+  109|       |
+  110|       |// check prefix and postfix operators
+  111|      0|void test6() {
+  112|      0|  LargeNum num0(10);
+  113|      0|  assert(num0++ == LargeNum(10));
+  114|      0|  assert(num0 == LargeNum(11));
+  115|      0|  assert(--num0 == LargeNum(10));
+  116|      0|  assert(num0-- == LargeNum(10));
+  117|      0|  assert(num0 == LargeNum(9));
+  118|      0|  assert(++num0 == LargeNum(10));
+  119|      0|  assert(num0-- == LargeNum(10));
+  120|      0|  assert(num0 == LargeNum(9));
+  121|      0|  num0.negate();
+  122|      0|  assert(++num0 == LargeNum(-8));
+  123|      0|  assert(--num0 == LargeNum(-9));
+  124|       |
+  125|      0|  LargeNum num1(1);
+  126|      0|  assert(--num1 == LargeNum(0));
+  127|      0|  assert(--num1 == LargeNum(-1));
+  128|      0|  assert(++num1 == LargeNum(0));
+  129|      0|  cout << "test6 complete" << endl;
+  130|      0|}
+  131|       |
+  132|       |// run all tests
+  133|      0|int main() {
+  134|      0|  test1();
+  135|      0|  test2();
+  136|      0|  test3();
+  137|      0|  test4();
+  138|      0|  test5();
+  139|      0|  test6();
+  140|       |
+  141|      0|  cout << "Done." << endl;
+  142|      0|}
+
+Mon Apr 24 02:29:22 UTC 2023
+=====================================================
+To create an output.txt file with all the output from this script
+Run the below command
+      ./create-output.sh > output.txt 2>&1 
+=====================================================
